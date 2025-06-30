@@ -4,28 +4,33 @@ Black and White dithering for the canvas element
 
 ## Differences of this fork
 
+This is a fork of [NielsLeenheer/CanvasDither](https://github.com/NielsLeenheer/CanvasDither) which is published on NPM as [canvas-dither](https://www.npmjs.com/package/canvas-dither).
+
 * Exports individual functions instead of a class object to allow for tree shaking.
 * No longer returns the ImageData, because the input parameter is mutated. Returning the same object gave me the false assumption that the unctions had created a copy.
 * Developed in TypeScript instead of JavaScript
 * Published on JSR.io instead of npm
 * Developed using Deno instead of NodeJs
+* Changed the default branch from "master" to "main"
 
 ## Usage
 
 First, install the package using npm:
 
-    npm install canvas-dither --save
+    npx jsr add @jaller94/canvas-dither
+
+For other package managers, read the instructions on https://jsr.io/@jaller94/canvas-dither.
 
 Then, require the package and use it like so:
 
-    let Dither = require('canvas-dither');
+    import * as Dither from "@jaller94/canvas-dither";
 
     // Assume we have an existing canvas element with a 2D context
     // Retrieve the image data of the canvas
     let image = context.getImageData(0, 0, canvas.width, canvas.height);
 
     // Dither the data using the Atkinson algoritm
-    image = Dither.atkinson(image);
+    Dither.atkinson(image);
 
     // Place the image data back on the canvas
     context.putImageData(image, 0, 0);
