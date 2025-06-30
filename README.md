@@ -6,9 +6,11 @@ Black and White dithering for the canvas element
 
 This is a fork of [NielsLeenheer/CanvasDither](https://github.com/NielsLeenheer/CanvasDither) which is published on NPM as [canvas-dither](https://www.npmjs.com/package/canvas-dither).
 
-* Exports individual functions instead of a class object to allow for tree shaking.
-* No longer returns the ImageData, because the input parameter is mutated. Returning the same object gave me the false assumption that the unctions had created a copy.
 * Developed in TypeScript instead of JavaScript
+* No longer returns the ImageData, because the input parameter is mutated. Returning the same object gave me the false assumption that the functions would creat a copy of the ImageData.
+* Exports individual functions instead of a class object to allow for tree shaking.
+* Fixed typo in JSDocs: "blank and white" became "black and white"
+* Added some basic unit tests
 * Published on JSR.io instead of npm
 * Developed using Deno instead of NodeJs
 * Changed the default branch from "master" to "main"

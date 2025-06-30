@@ -2,7 +2,6 @@
  * Change the image to grayscale
  *
  * @param  image         The imageData of a Canvas 2d context
- * @return               The resulting imageData
  *
  */
 export const grayscale = (image: ImageData): void => {
@@ -13,11 +12,11 @@ export const grayscale = (image: ImageData): void => {
 };
 
 /**
- * Change the image to blank and white using a simple threshold
+ * Change the image to black and white using a simple threshold.
+ * Pixels with a luminance darker than the threshold become black.
  *
  * @param   image         The imageData of a Canvas 2d context
- * @param   threshold     Threshold value (0-255)
- * @return                The resulting imageData
+ * @param   threshold     Threshold luminance for a pixel to be white (0-255)
  *
  */
 export const threshold = (image: ImageData, threshold: number): void => {
@@ -30,11 +29,11 @@ export const threshold = (image: ImageData, threshold: number): void => {
 };
 
 /**
- * Change the image to blank and white using the Bayer algorithm
+ * Change the image to black and white using the Bayer algorithm.
+ * Pixels with a luminance darker than the threshold become black.
  *
  * @param  image         The imageData of a Canvas 2d context
- * @param  threshold     Threshold value (0-255)
- * @return               The resulting imageData
+ * @param  threshold     Threshold luminance for a pixel to likely become white (0-255)
  *
  */
 export const bayer = (image: ImageData, threshold: number): void => {
@@ -43,7 +42,7 @@ export const bayer = (image: ImageData, threshold: number): void => {
     [195, 75, 225, 105],
     [60, 180, 30, 150],
     [240, 120, 210, 90],
-  ];
+  ] as const;
 
   for (let i = 0; i < image.data.length; i += 4) {
     const luminance = (image.data[i] * 0.299) + (image.data[i + 1] * 0.587) + (image.data[i + 2] * 0.114);
@@ -57,10 +56,9 @@ export const bayer = (image: ImageData, threshold: number): void => {
 };
 
 /**
- * Change the image to blank and white using the Floyd-Steinberg algorithm
+ * Change the image to black and white using the Floyd-Steinberg algorithm
  *
  * @param  image         The imageData of a Canvas 2d context
- * @return               The resulting imageData
  *
  */
 export const floydsteinberg = (image: ImageData): void => {
@@ -84,10 +82,9 @@ export const floydsteinberg = (image: ImageData): void => {
 };
 
 /**
- * Change the image to blank and white using the Atkinson algorithm
+ * Change the image to black and white using the Atkinson algorithm
  *
  * @param  image         The imageData of a Canvas 2d context
- * @return               The resulting imageData
  *
  */
 export const atkinson = (image: ImageData): void => {

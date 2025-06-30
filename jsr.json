@@ -1,6 +1,0 @@
-{
-  "name": "@jaller94/canvas-dither",
-  "version": "0.0.2",
-  "license": "MIT",
-  "exports": "./main.ts"
-}
