@@ -1,0 +1,5 @@
+{
+  "name": "@jaller94/canvas-dither",
+  "version": "0.0.1",
+  "exports": "./main.ts"
+}

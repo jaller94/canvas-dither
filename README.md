@@ -2,6 +2,14 @@
 
 Black and White dithering for the canvas element
 
+## Differences of this fork
+
+* Exports individual functions instead of a class object to allow for tree shaking.
+* No longer returns the ImageData, because the input parameter is mutated. Returning the same object gave me the false assumption that the unctions had created a copy.
+* Developed in TypeScript instead of JavaScript
+* Published on JSR.io instead of npm
+* Developed using Deno instead of NodeJs
+
 ## Usage
 
 First, install the package using npm:
